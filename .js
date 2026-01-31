@@ -113,24 +113,24 @@ const getwinnings = (rows, lines, bet, symbol_value) => {
 const game = () => {
     let balance = deposit();
     while (true) {
-        console.log("You have a balance of "+ balance)
-              const lines = getnumoflines();
+        console.log("You have a balance of " + balance)
+        const lines = getnumoflines();
         const getbet = bet(balance, lines);
         balance -= getbet * lines;
         const reels = spin();
         const rows = transpose(reels)
         printrows(rows);
-        const winnings = getwinnings(rows, lines, getbet,symbol_value);
-        balance+=winnings;
+        const winnings = getwinnings(rows, lines, getbet, symbol_value);
+        balance += winnings;
         console.log("You win " + winnings.toString());
-        if(balance<=0){
+        if (balance <= 0) {
             console.log("You have not money to play");
-            break; 
+            break;
         }
 
-    
-            const playagain=prompt("Do you want to play again?(y/n)");
-            if(playagain!="y") break;
+
+        const playagain = prompt("Do you want to play again?(y/n)");
+        if (playagain != "y") break;
 
     }
 
